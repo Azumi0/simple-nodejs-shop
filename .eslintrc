@@ -34,7 +34,7 @@
 		"@typescript-eslint/no-use-before-define": "off",
         "@typescript-eslint/indent": [
           "error",
-          "tab", {
+          4, {
             "SwitchCase": 1
           }
         ],
@@ -70,9 +70,19 @@
 			"error", {
 		  		"singleQuote": true,
 		  		"printWidth": 120,
+		  		"tabWidth": 4,
 		  		"trailingComma": "all"
 			}
 		],
 		"no-use-before-define": "off"
-	}
+	},
+	"overrides": [
+		{
+			"files": ["*.js", "*.jsx"],
+			"rules": {
+				 "@typescript-eslint/no-var-requires": "off",
+				 "@typescript-eslint/explicit-function-return-type": "off"
+			}
+		}
+	]
 }
