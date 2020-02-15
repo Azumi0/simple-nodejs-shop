@@ -12,10 +12,10 @@
     "frontend-build": "NODE_ENV='prod' gulp build",
     "frontend-build-dev": "gulp build",
     "frontend-dev": "gulp dev",
-    "check-lint": "eslint -c ./../../.eslintrc . --ext .js,.jsx,.ts,.tsx",
-    "check-lint:fix": "eslint  -c ./../../.eslintrc --fix . --ext .js,.jsx,.ts,.tsx",
+    "check-lint": "eslint -c .eslintrc . --ext .js,.jsx,.ts,.tsx",
+    "check-lint:fix": "eslint -c .eslintrc --fix . --ext .js,.jsx,.ts,.tsx",
     "backend-start": "node backend/bin/start",
-    "backend-dev-start": "DEBUG=* node backend/bin/start",
+    "backend-start-dev": "DEBUG=* node backend/bin/start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Przemyslaw Wrzeszcz",

@@ -1,6 +1,6 @@
 const babel = require('@babel/core');
 
-module.exports = (api) => {
+module.exports = api => {
     api.cache(true);
 
     const presets = [
