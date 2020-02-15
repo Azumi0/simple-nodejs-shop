@@ -1,3 +1,4 @@
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
@@ -22,11 +23,13 @@ module.exports = db => {
     );
 
     app.use(logger('dev'));
+    app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
+    app.use(cookieParser());
 
     app.use('/static', express.static(path.join(__dirname, '../static')));
     app.use('/dist', express.static(path.join(__dirname, '../frontend/dist')));
-    app.use('/', indexRouter(renderer));
+    app.use('/', indexRouter(renderer, db));
     // catch 404 and forward to error handler
     app.use((req, res, next) => {
         next(httpErrors(httpCodes.NOT_FOUND));

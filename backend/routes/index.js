@@ -1,13 +1,21 @@
 const { Router } = require('express');
 
-module.exports = renderer => {
+/**
+ * Create main router
+ *
+ * @param {TwingEnvironment} renderer
+ * @param {Sequelize} db
+ * @returns {Router}
+ */
+module.exports = (renderer, db) => {
     const router = Router();
 
-    /* GET index page. */
-    router.get('/', (req, res) => {
-        renderer.render('index.twig', { name: 'World' }).then(output => {
-            res.end(output);
-        });
+    router.get('/', async (req, res) => {
+        const renderData = { name: 'World' };
+        renderData.products = await db.models.Product.findAll();
+
+        const output = await renderer.render('index.twig', renderData);
+        res.end(output);
     });
 
     return router;

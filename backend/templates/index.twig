@@ -35,6 +35,11 @@
     <img src="https://svgur.com/i/1ja.svg">
     <span>Hello{{ ' ' + name|trim }}!</span>
     <em>Powered by Twing</em>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }}</li>
+        {% endfor %}
+    </ul>
 </main>
 </body>
 </html>
