@@ -14,7 +14,7 @@ export default (): void => {
         $('.cartTotalPrice').html(`${data.fullPrice.toFixed(2)}&#36;`);
     };
 
-    $('.productsInCart').on('click', '.removeFromCart', (event: MouseEvent): void => {
+    $('.product-table').on('click', '.removeFromCart', (event: MouseEvent): void => {
         event.preventDefault();
 
         const element = event.currentTarget as HTMLElement;
@@ -56,8 +56,10 @@ export default (): void => {
                 if (data.count === 1) {
                     selectedElement.closest('tr').remove();
 
-                    if ($('.productsInCart tbody tr').length === 0) {
-                        $('.cartPage').html('<h4>Add some products from the homepage to your cart first</h4>');
+                    if ($('.product-table tbody tr').length === 0) {
+                        $('.cartPage').html(
+                            '<div class="container"><div class="padding"><h3>Add some products from the homepage to your cart first</h3></div></div>',
+                        );
                     } else {
                         fixPrices(result.value.extraData);
                     }

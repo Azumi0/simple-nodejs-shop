@@ -2,31 +2,36 @@
 
 {% block content %}
     <main>
-        <form id="contactForm" name="contactForm">
-            <ul>
-                <li>
-                    <label for="name">Your name</label>
-                    <input id="name" name="name" type="text" minlength="3" required>
-                </li>
-                <li>
-                    <label for="email">Your e-mail</label>
-                    <input id="email" name="email" type="email" required>
-                </li>
-                <li>
-                    <label for="subject">Message subject</label>
-                    <input id="subject" name="subject" type="text" minlength="5" required>
-                </li>
-                <li>
-                    <label for="content">Message content</label>
-                    <textarea id="content" name="content" minlength="5" required></textarea>
-                </li>
-                <li>
-                    <button type="submit">
-                        send message
-                    </button>
-                </li>
-            </ul>
-        </form>
-
+        <div class="container">
+            <form id="contactForm" name="contactForm">
+                <div class="form-cnt">
+                    <div class="form-slide">
+                        <h2>Contact Us</h2>
+                        <div class="input-group r r-6">
+                            <label for="name">Your name</label>
+                            <input id="name" name="name" type="text" minlength="3" required>
+                        </div>
+                        <div class="input-group r r-6">
+                            <label for="email">Your e-mail</label>
+                            <input id="email" name="email" type="email" required>
+                        </div>
+                        <div class="input-group r r-12">
+                            <label for="subject">Message subject</label>
+                            <input id="subject" name="subject" type="text" minlength="5" required>
+                        </div>
+                        <div class="input-group r r-12">
+                            <label for="content">Message content</label>
+                            <textarea id="content" name="content" minlength="15" required></textarea>
+                        </div>
+                        <div class="button-group">
+                            <button type="submit" class="right button">
+                                Send message
+                            </button>
+                            <div class="cf"></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </main>
 {% endblock %}

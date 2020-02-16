@@ -1,0 +1,21 @@
+button, .button {
+  background: $tertiary-color;
+  color: $body-color;
+  display: inline-block;
+  padding: 10px 20px;
+  transition: $transition;
+  font-size: 26px;
+  line-height: 1;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+  &.small {
+    font-size: 18px;
+    padding: 5px 10px;
+    margin: 0;
+  }
+  &:hover {
+    background: lighten($tertiary-color, 10%);
+    color: $body-color;
+  }
+}

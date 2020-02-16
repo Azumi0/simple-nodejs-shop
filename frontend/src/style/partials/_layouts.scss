@@ -1,4 +1,5 @@
 .container {max-width: 1400px; padding: 0 10px; margin: 0 auto;}
+main {min-height: calc(100vh - 176px)}
 
 .r{
     float: left;
@@ -23,9 +24,40 @@
     h3 {font-size: 24px; padding: 10px; color: $body-color;}
   }
 }
-
+.padding {
+  padding: 40px 0;
+}
 .list {
   background: darken($body-color, 10%);
   padding: 20px;
   margin: 10px auto;
+}
+
+.product-table {
+  background: lighten($quartiary-color, 30%);
+  width: 100%;
+  margin-bottom: 30px;
+  border-collapse: collapse;
+  tr {
+    padding: 10px;
+    &:nth-of-type(2n + 2) {
+      td {
+        background: $quartiary-color;
+      }
+    }
+  }
+  td, th {
+    text-align: left;
+    padding: 10px;
+    img {
+      display: block;
+    }
+    &.small {
+      width: 120px;
+      text-align: center;
+    }
+    &.picture {
+      width: 180px;
+    }
+  }
 }

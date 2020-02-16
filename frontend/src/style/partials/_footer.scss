@@ -1,1 +1,8 @@
-footer {background: $primary-color; padding: 10px;}
+footer {
+  background: $primary-color;
+  padding: 10px;
+  color: $body-color;
+  a {
+    color: $body-color;
+  }
+}

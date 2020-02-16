@@ -3,14 +3,15 @@
 {% block content %}
     <main>
         <section class="r r-12">
-            <img src="https://placehold.it/1920x600" alt="Main image">
+            <img src="/dist/images/banner.jpg" alt="Main image">
         </section>
         <div class="container">
             <section class="r r-9 gridlock productList">
                 {% for product in products %}
                     <div class="element">
-                        <a href="#" data-product='{{ product | json_encode | escape('html') | raw }}' class="bordered productTrigger">
-                            <img src="/dist/images/{{ product.photo }}" alt="{{ product.name }} picture" />
+                        <a href="#" data-product='{{ product | json_encode | escape('html') | raw }}'
+                           class="bordered productTrigger">
+                            <img src="/dist/images/{{ product.photo }}" alt="{{ product.name }} picture"/>
                             <h3>{{ product.name }}</h3>
                         </a>
                     </div>
@@ -18,12 +19,8 @@
             </section>
             <section class="r r-3">
                 <aside class="list">
-                    <ul>
-                        <li><a href="#">Prod Group1</a></li>
-                        <li><a href="#">Prod Group2</a></li>
-                        <li><a href="#">Prod Group3</a></li>
-                        <li><a href="#">Prod Group4</a></li>
-                    </ul>
+                    <h4>Lorem Ipsum</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscin elit</p>
                 </aside>
             </section>
         </div>

@@ -4,8 +4,10 @@ header {
   .vertical-nav {
     ul {
       li {
+        font-family: $fancy-font;
         float: left;
         padding: 10px;
+        font-size: 30px;
       }
     }
   }

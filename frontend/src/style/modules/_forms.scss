@@ -1,11 +1,140 @@
 
 .form-cnt {
-  min-height: calc(100vh - 146px);
-  input {
-    border: 1px solid lighten($text-color, 50%);
-    height: 36px;
-    font-size: 22px;
-    padding: 0 10px;
-    width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  background: lighten($secondary-color, 60%);
+  position: relative;
+  transition: $transition;
+  overflow: hidden;
+  .input-group {
+    padding: 10px;
+    text-align: left;
+    label {
+      font-size: 18px;
+
+    }
+    input {
+      border: 1px solid lighten($text-color, 50%);
+      height: 36px;
+      font-size: 18px;
+      padding: 0 10px;
+      width: 100%;
+    }
+    textarea {
+      border: 1px solid lighten($text-color, 50%);
+      height: 240px;
+      font-size: 18px;
+      padding: 0 10px;
+      width: 100%;
+      resize: none;
+    }
+  }
+  .radio-group {
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+    label {
+      display: block;
+      font-size:0;
+      border: 2px solid transparent;
+      background: $body-color;
+      height: 92px;
+      cursor: pointer;
+      &:hover {border: 2px solid #999999}
+      img {vertical-align: middle}
+    }
+    input {
+      position: absolute;
+      visibility: hidden;
+      opacity:0;
+      &:checked + label {border: 2px solid $secondary-color}
+    }
+    img {
+      max-width:80px
+    }
+  }
+  .form-slide {
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    h2 {
+      text-align: left;
+      padding: 0 10px;
+    }
+  }
+  .form-inner {
+    width: 300%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    transition: $transition;
+    &.step1 {
+      margin-left: 0;
+    }
+    &.step2 {
+      margin-left: -100%;
+    }
+    &.step3 {
+      margin-left: -200%;
+    }
+    .form-slide {
+      padding: 10px 10px 76px 10px;
+      .button-group {
+        position: absolute;
+        right: 10px;
+        left: 10px;
+        bottom: 10px
+      }
+    }
+  }
+}
+
+.progressbar {
+  counter-reset: step;
+  max-width: 800px;
+  margin: 0 auto;
+  li {
+    list-style-type: none;
+    width: 33%;
+    float: left;
+    font-size: 26px;
+    position: relative;
+    text-align: center;
+    color: lighten($text-color, 50%);
+    &:before {
+      width: 30px;
+      height: 30px;
+      content: counter(step);
+      counter-increment: step;
+      line-height: 30px;
+      border: 2px solid lighten($text-color, 50%);
+      display: block;
+      text-align: center;
+      margin: 0 auto 10px auto;
+      border-radius: 50%;
+      background-color: white;
+    }
+    &:after {
+      width: 100%;
+      height: 2px;
+      content: '';
+      position: absolute;
+      background-color: lighten($text-color, 50%);
+      top: 15px;
+      left: -50%;
+      z-index: -1;
+    }
+    &:first-child:after {
+      content: none;
+    }
+    &.active {
+      color: $tertiary-color;
+      &:before {
+        border-color: $tertiary-color;
+      }
+      & + li:after {
+        background-color: $tertiary-color;
+      }
+    }
   }
 }
