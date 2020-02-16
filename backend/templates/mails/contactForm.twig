@@ -1,0 +1,11 @@
+{% extends 'mails/mailBase.twig' %}
+
+{% block content %}
+    <ul>
+        <li>Client name: {{ name }}</li>
+        <li>Client e-mail: {{ email }}</li>
+        <li>Message subject: {{ subject }}</li>
+        <li>Message content: </li>
+        <li>{{ content }}</li>
+    </ul>
+{% endblock %}

@@ -2,9 +2,11 @@
   "port": 3000,
   "sessionSecret": "Shop secret cat",
   "tax": 0.23,
+  "adminMail": "bar@example.com",
   "mailerSender": "\"Fred Foo \" <foo@example.com>",
+  "useEtheralEmail": false,
   "mailer": {
-    "host": "smtp.ethereal.email",
+    "host": "smtp.example.email",
     "port": 587,
     "secure": false,
     "auth": {

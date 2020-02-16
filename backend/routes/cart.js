@@ -46,7 +46,7 @@ module.exports = (renderer, db) => {
             }, {});
         }
 
-        const output = await renderer.render('cart.twig', renderData);
+        const output = await renderer.render('pages/cart.twig', renderData);
         res.end(output);
     });
 
