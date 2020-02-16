@@ -1,6 +1,7 @@
 # simple-nodejs-shop
 This is just a simple project that displays a list of products and allows the user to add them to the cart and place an order for them.
 The order is then send as an e-mail to address specified in the config.
+Project demo available here: https://youtu.be/PHLxV7Yu3QE
 
 ## Technologies used
 * TypeScript
