@@ -7,15 +7,16 @@
     "not ie <= 10"
   ],
   "description": "",
-  "main": "index.js",
+  "main": "backend/bin/start.js",
   "scripts": {
     "frontend-build": "NODE_ENV='prod' gulp build",
     "frontend-build-dev": "gulp build",
     "frontend-dev": "EABLE_WP_WATCH='true' gulp dev",
     "check-lint": "eslint -c .eslintrc . --ext .js,.jsx,.ts,.tsx",
     "check-lint:fix": "eslint -c .eslintrc --fix . --ext .js,.jsx,.ts,.tsx",
-    "backend-start": "node backend/bin/start",
-    "backend-start-dev": "DEBUG=* node backend/bin/start",
+    "backend-start": "node backend/bin/start.js",
+    "backend-start-dev": "DEBUG=* node backend/bin/start.js",
+    "backend-dev": "DEBUG=* nodemon -e twig,js --watch backend backend/bin/start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Przemyslaw Wrzeszcz",
@@ -43,6 +44,7 @@
     "gulp": "^4.0.2",
     "gulp-sass": "^4.0.2",
     "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
     "style-loader": "^1.1.3",
     "typescript": "^3.7.5",
