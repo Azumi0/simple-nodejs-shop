@@ -18,7 +18,7 @@ module.exports = {
     sass,
     sassWatch,
     webpack,
-
+    dev,
     default: dev,
     build,
 };

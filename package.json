@@ -11,7 +11,7 @@
   "scripts": {
     "frontend-build": "NODE_ENV='prod' gulp build",
     "frontend-build-dev": "gulp build",
-    "frontend-dev": "gulp dev",
+    "frontend-dev": "EABLE_WP_WATCH='true' gulp dev",
     "check-lint": "eslint -c .eslintrc . --ext .js,.jsx,.ts,.tsx",
     "check-lint:fix": "eslint -c .eslintrc --fix . --ext .js,.jsx,.ts,.tsx",
     "backend-start": "node backend/bin/start",

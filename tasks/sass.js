@@ -13,5 +13,5 @@ module.exports.sass = function sass() {
 };
 
 module.exports.sassWatch = function sassWatch() {
-    return gulp.watch(`${config.frontendSource}style/**/*.scss`, ['sass']);
+    return gulp.watch(`${config.frontendSource}style/**/*.scss`, module.exports.sass);
 };
