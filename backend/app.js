@@ -9,6 +9,7 @@ const path = require('path');
 const appConfig = require('../app-config.json');
 const renderer = require('./helpers/renderer')();
 const indexRouter = require('./routes/index');
+const cartRouter = require('./routes/cart');
 
 module.exports = db => {
     const app = express();
@@ -30,6 +31,7 @@ module.exports = db => {
     app.use('/static', express.static(path.join(__dirname, '../static')));
     app.use('/dist', express.static(path.join(__dirname, '../frontend/dist')));
     app.use('/', indexRouter(renderer, db));
+    app.use('/cart', cartRouter(renderer, db));
     // catch 404 and forward to error handler
     app.use((req, res, next) => {
         next(httpErrors(httpCodes.NOT_FOUND));

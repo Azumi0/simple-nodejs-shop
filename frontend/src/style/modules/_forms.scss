@@ -1,0 +1,11 @@
+
+.form-cnt {
+  min-height: calc(100vh - 146px);
+  input {
+    border: 1px solid lighten($text-color, 50%);
+    height: 36px;
+    font-size: 22px;
+    padding: 0 10px;
+    width: 100%;
+  }
+}

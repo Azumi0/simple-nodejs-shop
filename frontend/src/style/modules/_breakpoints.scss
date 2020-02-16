@@ -1,0 +1,20 @@
+@media only screen and (min-width:320px) {
+  .gridlock {grid-template-columns: repeat(1, 1fr)}
+}
+@media only screen and (min-width:480px) {
+
+}
+@media only screen and (min-width:768px) {
+ .gridlock {grid-template-columns: repeat(2, 1fr)}
+
+}
+@media only screen and (min-width:1024px) {
+
+}
+@media only screen and (min-width:1140px) {
+ .gridlock {grid-template-columns: repeat(3, 1fr)}
+
+}
+@media only screen and (min-width:1280px) {
+ .gridlock {grid-template-columns: repeat(4, 1fr)}
+}

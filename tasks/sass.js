@@ -8,7 +8,11 @@ gulpSass.compiler = compiler;
 module.exports.sass = function sass() {
     return gulp
         .src(`${config.frontendSource}style/**/*.scss`)
-        .pipe(gulpSass().on('error', gulpSass.logError))
+        .pipe(
+            gulpSass({
+                includePaths: ['node_modules'],
+            }).on('error', gulpSass.logError),
+        )
         .pipe(gulp.dest(`${config.frontendDestination}css`));
 };
 
