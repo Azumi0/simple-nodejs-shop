@@ -1,10 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Test</title>
     <meta charset="utf-8">
+    <title>{% if pageTitle is not null and pageTitle is not empty %}{{ pageTitle }}{% else %}Simple Shop{% endif %}</title>
+    <meta name="description" content="Simple shop with electronic products">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="/static/icon.png">
+    <link rel='icon' href='/static/favicon.ico' type='image/x-icon' />
     <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma" rel="stylesheet">
-    <title>{% if pageTitle is not null and pageTitle is not empty %}{{ pageTitle }}{% else %}Całkiem OK krzesła{% endif %} - Krzesła 24</title>
     <link rel="stylesheet" href="/dist/css/style.css">
     <script src="/dist/js/bundle.js?v=1.0"></script>
 </head>
