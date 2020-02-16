@@ -74,7 +74,8 @@
 		  		"trailingComma": "all"
 			}
 		],
-		"no-use-before-define": "off"
+		"no-use-before-define": "off",
+		"react/prop-types": "off",
 	},
 	"overrides": [
 		{

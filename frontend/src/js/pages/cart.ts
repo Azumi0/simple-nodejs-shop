@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import $ from 'cash-dom';
 import HttpStatus from 'http-status-codes';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import orderForm from '../orderForm';
 import { ProductInCartI, NewPricesInCartI } from '../types/models';
 
 export default (): void => {
@@ -14,7 +15,8 @@ export default (): void => {
         $('.cartTotalPrice').html(`${data.fullPrice.toFixed(2)}&#36;`);
     };
 
-    $('.product-table').on('click', '.removeFromCart', (event: MouseEvent): void => {
+    const productTable = $('.product-table');
+    productTable.on('click', '.removeFromCart', (event: MouseEvent): void => {
         event.preventDefault();
 
         const element = event.currentTarget as HTMLElement;
@@ -81,4 +83,8 @@ export default (): void => {
             }
         });
     });
+
+    if (productTable.length > 0) {
+        orderForm();
+    }
 };

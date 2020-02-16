@@ -1,0 +1,44 @@
+{% extends 'mails/mailBase.twig' %}
+
+{% block content %}
+    <ul>
+        <li>Client name: {{ name }}</li>
+        <li>Client e-mail: {{ email }}</li>
+        <li>Client phone: {{ phone }}</li>
+        <li>Delivery address: {{ address }}</li>
+        <li>Delivery method: {{ delivery }}</li>
+        <li>Payment method: {{ payment }}</li>
+    </ul>
+    <p>Products</p>
+    <table border="1px" cellspacing="0" cellpadding="3">
+        <thead>
+        <tr>
+            <th scope="col">Product ID</th>
+            <th scope="col">Product name</th>
+            <th scope="col">Net price per unit</th>
+            <th scope="col">Units amount</th>
+            <th scope="col">Total price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price|number_format(2, '.', ',')  }}&#36;</td>
+                <td>{{ product.count }}</td>
+                <td>{{ product.totalPrice|number_format(2, '.', ',') }}&#36;</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <td>Totals</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{ fullPrice|number_format(2, '.', ',') }}&#36;</td>
+        </tr>
+        </tfoot>
+    </table>
+{% endblock %}

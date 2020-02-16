@@ -15,7 +15,7 @@ export default (): void => {
             title: data.name,
             text: data.description,
             footer: `Net price: ${data.price.toFixed(2)}&#36;`,
-            imageUrl: `/dist/images/${data.photo}`,
+            imageUrl: `/dist/images/products/${data.photo}`,
             imageAlt: `${data.name} photo`,
             confirmButtonText: 'Add to cart',
             showCancelButton: true,

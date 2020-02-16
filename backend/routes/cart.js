@@ -1,8 +1,11 @@
+const debug = require('debug')('myshop:cartRouter');
 const empty = require('locutus/php/var/empty');
 const { Router } = require('express');
 const HttpStatus = require('http-status-codes');
 const { Op } = require('sequelize');
+const config = require('../helpers/config');
 const appConfig = require('../helpers/config');
+const Mailer = require('../helpers/mailer');
 const ResponseHelper = require('../helpers/response');
 
 /**
@@ -14,6 +17,8 @@ const ResponseHelper = require('../helpers/response');
  */
 module.exports = (renderer, db) => {
     const router = Router();
+    const mailer = new Mailer(renderer);
+
     const getProductsCounts = shoppingCart => {
         return shoppingCart.reduce((map, val) => {
             map[val] = (map[val] || 0) + 1;
@@ -125,6 +130,46 @@ module.exports = (renderer, db) => {
         }
 
         ResponseHelper.modelResponse(res, { message: 'Product removed from cart', extraData }, HttpStatus.OK);
+    });
+
+    router.post('/finalize', async (req, res) => {
+        try {
+            const dataToSend = { ...req.body, products: [], fullPrice: 0 };
+            const { tax } = appConfig;
+            const products = await db.models.Product.findAll({
+                where: {
+                    id: {
+                        [Op.in]: req.session.shoppingCart,
+                    },
+                },
+            });
+            const productsCounts = getProductsCounts(req.session.shoppingCart);
+            dataToSend.products = products.reduce((map, product) => {
+                const priceForAmount = product.price * productsCounts[product.id];
+                const totalPrice = priceForAmount + priceForAmount * tax;
+                map.push({
+                    id: product.id,
+                    name: product.name,
+                    count: productsCounts[product.id],
+                    price: product.price,
+                    totalPrice,
+                });
+                dataToSend.fullPrice += totalPrice;
+                return map;
+            }, []);
+
+            await mailer.send('mails/orderForm.twig', dataToSend, 'Order has been placed', config.adminMail);
+            req.session.shoppingCart = [];
+            ResponseHelper.modelResponse(res, { message: 'Message sent.' }, HttpStatus.OK);
+        } catch (e) {
+            debug('Error while sending message');
+            debug(e.message);
+            ResponseHelper.modelResponse(
+                res,
+                { message: 'Error while sending message' },
+                HttpStatus.INTERNAL_SERVER_ERROR,
+            );
+        }
     });
 
     return router;
