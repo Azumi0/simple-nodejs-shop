@@ -1,11 +1,12 @@
 const { series, parallel } = require('gulp');
 
 const clean = require('./tasks/clean');
+const copyImages = require('./tasks/copyImages');
 const { sass, sassWatch } = require('./tasks/sass');
 const webpack = require('./tasks/webpack');
 
 const build = done => {
-    return (clean, parallel(sass, webpack))(done);
+    return series(clean, parallel(copyImages, sass, webpack))(done);
 };
 
 const dev = done => {
@@ -15,6 +16,7 @@ const dev = done => {
 
 module.exports = {
     clean,
+    copyImages,
     sass,
     sassWatch,
     webpack,

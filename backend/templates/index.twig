@@ -1,31 +1,31 @@
 {% extends 'base.twig' %}
 {% block content %}
-  <main>
-    <section class="r r-12">
-      <img src="https://placehold.it/1920x600" alt="Main image">
-    </section>
-    <div class="container">
-      <section class="r r-9 gridlock">
-          {% for product in products %}
-            <div class="element">
-              <a href="#" data-product="p1" class="bordered">
-                <img src="https://placehold.it/300x200" alt="product picture" />
-                <h3>{{ product.name }}</h3>
-              </a>
-            </div>
-          {% endfor %}
-      </section>
-      <section class="r r-3">
-        <aside class="list">
-          <ul>
-            <li><a href="#">Prod Group1</a></li>
-            <li><a href="#">Prod Group2</a></li>
-            <li><a href="#">Prod Group3</a></li>
-            <li><a href="#">Prod Group4</a></li>
-          </ul>
-        </aside>
-      </section>
-    </div>
-    <div class="cf"></div>
-</main>
+    <main>
+        <section class="r r-12">
+            <img src="https://placehold.it/1920x600" alt="Main image">
+        </section>
+        <div class="container">
+            <section class="r r-9 gridlock">
+                {% for product in products %}
+                    <div class="element">
+                        <a href="#" data-product="p1" class="bordered">
+                            <img src="https://placehold.it/300x200" alt="product picture" />
+                            <h3>{{ product.name }}</h3>
+                        </a>
+                    </div>
+                {% endfor %}
+            </section>
+            <section class="r r-3">
+                <aside class="list">
+                    <ul>
+                        <li><a href="#">Prod Group1</a></li>
+                        <li><a href="#">Prod Group2</a></li>
+                        <li><a href="#">Prod Group3</a></li>
+                        <li><a href="#">Prod Group4</a></li>
+                    </ul>
+                </aside>
+            </section>
+        </div>
+        <div class="cf"></div>
+    </main>
 {% endblock %}
