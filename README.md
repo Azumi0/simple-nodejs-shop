@@ -14,3 +14,14 @@ The order is then send as an e-mail to address specified in the config.
 
 ## Own settings
 If you want to modify application settings (any you probably should), create a file `backend/app-config.local.json` containing only the settings that you wish to modify.
+
+## Adding products
+To add a product you need to prepare a photo for it in resolution `1280 x 720`, put it in directory `frontend/src/images/products/` and add a record to SQLite database. You can do so by executing command
+```typescript
+await sequelize.models.Product.create({
+    name: 'ProductName',
+    description: 'ProductDescription',
+    photo: 'photo.png',
+    price: 32.5,
+});
+``` 
