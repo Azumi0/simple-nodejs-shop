@@ -5,11 +5,11 @@
             <img src="https://placehold.it/1920x600" alt="Main image">
         </section>
         <div class="container">
-            <section class="r r-9 gridlock">
+            <section class="r r-9 gridlock productList">
                 {% for product in products %}
                     <div class="element">
-                        <a href="#" data-product="p1" class="bordered">
-                            <img src="https://placehold.it/300x200" alt="product picture" />
+                        <a href="#" data-product='{{ product | json_encode | escape('html') | raw }}' class="bordered productTrigger">
+                            <img src="/dist/images/{{ product.photo }}" alt="{{ product.name }} picture" />
                             <h3>{{ product.name }}</h3>
                         </a>
                     </div>

@@ -51,6 +51,7 @@
     "webpack": "^4.41.6"
   },
   "dependencies": {
+    "cash-dom": "^6.0.2",
     "cookie-parser": "^1.4.4",
     "core-js": "^3.6.4",
     "debug": "^4.1.1",
