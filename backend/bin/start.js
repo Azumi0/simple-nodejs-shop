@@ -7,7 +7,7 @@
 const debug = require('debug')('myshop:server');
 const http = require('http');
 
-const appConfig = require('../../app-config.json');
+const appConfig = require('../helpers/config');
 const appInit = require('../app');
 const databaseInit = require('../helpers/database');
 /**

@@ -11,3 +11,6 @@ The order is then send as an e-mail to address specified in the config.
 * Start backend web server `npm run backend-start`
 * Start backend web server with debug messages `npm run backend-start-dev`
 * Start backend web server and keep watching for changes `npm run backend-dev`
+
+## Own settings
+If you want to modify application settings (any you probably should), create a file `backend/app-config.local.json` containing only the settings that you wish to modify.

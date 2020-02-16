@@ -2,7 +2,7 @@ const empty = require('locutus/php/var/empty');
 const { Router } = require('express');
 const HttpStatus = require('http-status-codes');
 const { Op } = require('sequelize');
-const appConfig = require('../../app-config.json');
+const appConfig = require('../helpers/config');
 const ResponseHelper = require('../helpers/response');
 
 /**

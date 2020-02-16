@@ -2,3 +2,4 @@
 node_modules
 frontend/dist
 sessions
+backend/app-config.local.json

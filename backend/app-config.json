@@ -1,0 +1,15 @@
+{
+  "port": 3000,
+  "sessionSecret": "Shop secret cat",
+  "tax": 0.23,
+  "mailerSender": "\"Fred Foo \" <foo@example.com>",
+  "mailer": {
+    "host": "smtp.ethereal.email",
+    "port": 587,
+    "secure": false,
+    "auth": {
+      "user": "testAccountUser",
+      "pass": "testAccountPass"
+    }
+  }
+}
