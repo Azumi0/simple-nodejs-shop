@@ -1,4 +1,5 @@
 {
   "port": 3000,
-  "sessionSecret": "Shop secret cat"
+  "sessionSecret": "Shop secret cat",
+  "tax": 0.23
 }

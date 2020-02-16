@@ -1,29 +1,80 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-    <form class="" action="index.html" method="post">
-        <div class="container">
-            <form action="index.html" method="post">
-                <div class="form-cnt">
-                    <div class="input-group r r-6">
-                        <label for="name">Name</label>
-                        <input type="text" name="name">
-                    </div>
-                    <div class="input-group r r-6">
-                        <label for="surname">Surname</label>
-                        <input type="text" name="surname">
-                    </div>
-                    <div class="input-group r r-6">
-                        <label for="email">Email</label>
-                        <input type="text" name="email">
-                    </div>
-                    <div class="input-group r r-6">
-                        <label for="company">Company</label>
-                        <input type="text" name="company">
-                    </div>
-                    <div class="cf"></div>
+    <style type="text/css">
+        .cartPage .productsInCart{
+            color: #090520;
+        }
+        .cartPage h4 {
+            color: #090520;
+        }
+    </style>
+    <section class="cartPage">
+        {% if products %}
+            {% set totalPrice = 0 %}
+            <table class="productsInCart">
+                <thead>
+                    <tr>
+                        <th scope="col">Product name</th>
+                        <th scope="col">Net price per unit</th>
+                        <th scope="col">Units amount</th>
+                        <th scope="col">Tax</th>
+                        <th scope="col">Total price</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        {% set myExtra = productsExtra[product.id] %}
+                        <tr class="cartRow" data-id="{{ product.id }}">
+                            <th scope="row">{{ product.name }}</th>
+                            <td class="productPrice">{{ product.price|number_format(2, '.', ',')  }}&#36;</td>
+                            <td class="productAmount">{{ myExtra.count }}</td>
+                            <td>{{ tax*100 }}%</td>
+                            <td class="productTotalPrice">{{ myExtra.totalPrice|number_format(2, '.', ',') }}&#36;</td>
+                            <td><a href="#" class="removeFromCart" data-id="{{ product.id }}" data-name="{{ product.name }}" data-count="{{ myExtra.count }}">Remove item from cart</a></td>
+                        </tr>
+                        {% set totalPrice = totalPrice + myExtra.totalPrice %}
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row">Totals</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="cartTotalPrice">{{ totalPrice|number_format(2, '.', ',') }}&#36;</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <form class="" action="index.html" method="post">
+                <div class="container">
+                    <form action="index.html" method="post">
+                        <div class="form-cnt">
+                            <div class="input-group r r-6">
+                                <label for="name">Name</label>
+                                <input type="text" name="name">
+                            </div>
+                            <div class="input-group r r-6">
+                                <label for="surname">Surname</label>
+                                <input type="text" name="surname">
+                            </div>
+                            <div class="input-group r r-6">
+                                <label for="email">Email</label>
+                                <input type="text" name="email">
+                            </div>
+                            <div class="input-group r r-6">
+                                <label for="company">Company</label>
+                                <input type="text" name="company">
+                            </div>
+                            <div class="cf"></div>
+                        </div>
+                    </form>
                 </div>
             </form>
-        </div>
-    </form>
+        {% else %}
+            <h4>Add some products from the homepage to your cart first</h4>
+        {% endif %}
+    </section>
 {% endblock %}
