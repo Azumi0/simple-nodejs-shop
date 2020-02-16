@@ -1,12 +1,12 @@
 {
-  "name": "showcase",
+  "name": "simple-nodejs-shop",
   "version": "1.0.0",
   "browserslist": [
     "last 3 versions",
     "not < 0.01%",
     "not ie <= 10"
   ],
-  "description": "",
+  "description": "Basic e-commerce shop based on NodeJS",
   "main": "backend/bin/start.js",
   "scripts": {
     "frontend-build": "NODE_ENV='prod' gulp build",

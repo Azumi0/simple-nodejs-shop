@@ -2,6 +2,19 @@
 This is just a simple project that displays a list of products and allows the user to add them to the cart and place an order for them.
 The order is then send as an e-mail to address specified in the config.
 
+## Technologies used
+* TypeScript
+* React
+* NodeJS
+* Express
+* SQLite
+* Gulp
+* Webpack
+* Sass
+* Cash
+
+Full list in file `package.json`
+
 ## Available commands
 * Build frontend part of the project with production settings `npm run frontend-build`
 * Build frontend part of the project with development settings `npm run frontend-build-dev`
