@@ -20,12 +20,5 @@ module.exports = async () => {
     productsModel(sequelize);
     await sequelize.sync();
 
-    /*await sequelize.models.Product.create({
-        name: 'Dell keyboard',
-        description: 'OEM Dell keyboard equipped with SmartCard reader. Color black.',
-        photo: 'dell_kb.png',
-        price: 32.5,
-    });*/
-
     return sequelize;
 };

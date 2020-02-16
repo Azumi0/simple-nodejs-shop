@@ -22,7 +22,7 @@
                             {% set myExtra = productsExtra[product.id] %}
                             <tr class="cartRow" data-id="{{ product.id }}">
                                 <td>{{ product.name }}</td>
-                                <td class="picture"><img src="/dist/images/{{ product.photo }}" alt="{{ product.name }} photo"></td>
+                                <td class="picture"><img src="/dist/images/products/{{ product.photo }}" alt="{{ product.name }} photo"></td>
                                 <td class="productPrice">{{ product.price|number_format(2, '.', ',')  }}&#36;</td>
                                 <td class="productAmount">{{ myExtra.count }}</td>
                                 <td>{{ tax*100 }}%</td>

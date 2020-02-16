@@ -11,7 +11,7 @@
                     <div class="element">
                         <a href="#" data-product='{{ product | json_encode | escape('html') | raw }}'
                            class="bordered productTrigger">
-                            <img src="/dist/images/{{ product.photo }}" alt="{{ product.name }} picture"/>
+                            <img src="/dist/images/products/{{ product.photo }}" alt="{{ product.name }} picture"/>
                             <h3>{{ product.name }}</h3>
                         </a>
                     </div>
