@@ -63,7 +63,7 @@
     "express-session": "^1.17.0",
     "http-errors": "^1.7.3",
     "http-status-codes": "^1.4.0",
-    "locutus": "^2.0.11",
+    "locutus": "^2.0.15",
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2",
     "morgan": "^1.9.1",
